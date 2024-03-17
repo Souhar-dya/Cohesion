@@ -24,4 +24,4 @@ Key Features:
 4. File Sharing: Share documents, code files, and resources within the workspace, facilitating seamless collaboration.
 5. Workspace Management: Customize workspace settings, manage team members, and configure permissions to optimize collaboration.
 
-CollaboraCode aims to revolutionize remote team collaboration, providing a comprehensive platform that fosters productivity, creativity, and synergy among team members. With its intuitive interface and powerful features, CollaboraCode empowers remote teams to work together efficiently, regardless of their physical distance.
+Cohesion aims to revolutionize remote team collaboration, providing a comprehensive platform that fosters productivity, creativity, and synergy among team members. With its intuitive interface and powerful features, CollaboraCode empowers remote teams to work together efficiently, regardless of their physical distance.
