@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="/login.css" />
+  </head>
+  <body>
+    <main id="login-card">
+      <section class="card-body">
+        <h2>Login Form</h2>
+        <form action="/login" method="post">
+          <div class="form-group">
+            <label for="username" class="form-label">Username:</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="password" class="form-label">Password:</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="form-control"
+              required
+            />
+          </div>
+          <p id="signup">New User..? <a href="signup">Sign Up</a></p>
+          <button type="submit" id="login-btn">Login</button>
+        </form>
+        <% if (errorMessage) { %>
+        <p class="error-message"><%= errorMessage %></p>
+        <% } %>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2024 Pyaracetamol-650 | All Rights Reserved</p>
+    </footer>
+  </body>
+</html>
