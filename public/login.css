@@ -1,0 +1,95 @@
+body {
+  background-image: url("/images/login\ page\ bg.png");
+  font-family: "Roboto Serif", serif;
+  background-size: cover;
+  background-position: center center;
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+#login-card {
+  margin: 12% auto;
+  width: 35%; /* Decrease the width of the login card */
+  max-height: calc(100vh - 24%);
+  border-radius: 1rem;
+  background-color: #4d4add; /* Purplish shade background color */
+  overflow: hidden; /* Hide overflow content */
+}
+
+.card-body {
+  border-radius: 1rem;
+  border: #2c2b69 solid 3px;
+  background-color: #1a1628;
+}
+
+.card-body h2 {
+  color: #fff; /* Adjust heading color */
+  font-family: "Roboto Serif", serif;
+  text-align: center; /* Center align the heading */
+  margin-top: 0; /* Remove margin */
+  text-shadow: 2px 2px 4px #2c2b69;
+}
+
+.form-group {
+  padding: 1.5rem; /* Increase padding to increase height of form bar */
+}
+
+.form-label {
+  color: #fff; /* Label text color */
+  background-color: #4d4add;
+  padding: 0.5rem 1rem; /* Increase padding to increase height of form bar */
+  margin-bottom: -5;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.form-control {
+  margin-top: 1rem; /* Adjust top margin of form controls */
+  border-top: 0;
+  padding: 1rem; /* Increase padding to increase height of form bar */
+  border-radius: 0 0 0.5rem 0.5rem; /* Adjust border radius of form controls */
+  width: calc(100% - 3rem); /* Decrease width to fit the card */
+}
+
+#login-btn {
+  display: block;
+  margin: 2% auto; /* Adjust button margin */
+  padding: 1.5% 10%; /* Adjust button padding */
+  text-align: center;
+  border: none;
+  background-color: #4d4add;
+  color: #fff; /* Button text color */
+  border-radius: 0.5rem;
+}
+
+#error-message {
+  color: red; /* Error message color */
+}
+
+footer {
+  background-image: url("/images/Rectangle\ 2\ \(2\).png");
+  font-family: "Roboto Serif", serif;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  font-size: 3vh;
+  height: 10%;
+  text-align: center;
+  width: 100%;
+  color: #fff;
+  bottom: 0;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#signup {
+  text-align: center;
+}
+
+#signup a {
+  text-decoration: none;
+  color: #4d4add;
+}
+form {
+  color: #fff;
+}

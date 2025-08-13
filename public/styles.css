@@ -1,0 +1,88 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 10px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+main {
+  padding: 20px;
+}
+
+section {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+.google-signup {
+  margin-top: 20px;
+}
+
+.google-signup h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.btn-google {
+  display: inline-block;
+  background-color: #dd4b39;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-google:hover {
+  background-color: #c53727;
+}
+.google-login {
+  margin-top: 20px;
+}
+
+.google-login h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.btn-google {
+  display: inline-block;
+  background-color: #dd4b39;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-google:hover {
+  background-color: #c53727;
+}

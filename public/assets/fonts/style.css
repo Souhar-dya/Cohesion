@@ -1,0 +1,10 @@
+@font-face {
+   font-family: 'ClashDisplay-Medium';
+   font-display: swap;
+   src: url('ClashDisplay-Medium/font.ttf');
+}
+@font-face {
+   font-family: 'ClashDisplay-Light';
+   font-display: swap;
+   src: url('ClashDisplay-Light/font.ttf');
+}
