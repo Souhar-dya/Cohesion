@@ -1,4 +1,4 @@
-## Cohesion – Minimal Real‑Time Next.js Demo
+## Cohesion – Minimal Real‑Time Next.js 
 
 Features:
 
@@ -29,7 +29,7 @@ Open two browser windows: http://localhost:3000 to test collaboration.
 - No TURN server (NAT may block media)
 - No auth (all share one room)
 
-### Extend
+
 
 Add auth, DB persistence (Postgres + Prisma), CRDT (Yjs), and TURN for reliability.
 
