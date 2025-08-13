@@ -34,5 +34,3 @@ Open two browser windows: http://localhost:3000 to test collaboration.
 Add auth, DB persistence (Postgres + Prisma), CRDT (Yjs), and TURN for reliability.
 
 ---
-
-Enjoy! 🎯
