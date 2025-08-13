@@ -14,7 +14,6 @@ Minimal file count, inline comments, only free STUN (Google) – no external pai
 npm install
 npm run dev
 ```
-
 Open two browser windows: http://localhost:3000 to test collaboration.
 
 ### Key Files
