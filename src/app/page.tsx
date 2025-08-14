@@ -18,6 +18,10 @@ export default function Home() {
   const [input, setInput] = useState("");
   const [code, setCode] = useState("");
   const [activeTab, setActiveTab] = useState<"video" | "code">("video");
+  const [runOut, setRunOut] = useState<string>("");
+  const [runErr, setRunErr] = useState<string>("");
+  const [runIn, setRunIn] = useState<string>("");
+  const [running, setRunning] = useState<boolean>(false);
   const wsRef = useRef<WebSocket | null>(null);
   const codeRef = useRef(code);
   const [callActive, setCallActive] = useState(false);
@@ -35,7 +39,6 @@ export default function Home() {
   const sendChat = () => {
     if (!input.trim()) return;
     send({ type: "chat", text: input });
-    // Removed optimistic append to avoid duplicate; server broadcast will insert.
     setInput("");
   };
   const codeDebounce = useRef<number | null>(null);
@@ -189,7 +192,8 @@ export default function Home() {
       if (retry) window.clearTimeout(retry);
       wsRef.current?.close();
     };
-  }, [callActive, createPeerConnection, handleRTCSignal]); // socketId intentionally excluded: changes after init shouldn't force reconnect
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [callActive, createPeerConnection, handleRTCSignal]); 
 
   const startCall = async () => {
     if (callActive) return;
@@ -420,6 +424,106 @@ export default function Home() {
                   lineHeight: 1.35,
                 }}
               />
+              <div style={{ display: "flex", gap: 8, marginTop: 8 }}>
+                <input
+                  value={runIn}
+                  onChange={(e) => setRunIn(e.target.value)}
+                  placeholder="stdin (optional)"
+                  style={{
+                    flex: 1,
+                    padding: 8,
+                    border: "1px solid #555",
+                    borderRadius: 4,
+                    background: "#222",
+                    color: "#eee",
+                  }}
+                />
+                <button
+                  disabled={running || !code.trim()}
+                  onClick={async () => {
+                    setRunning(true);
+                    setRunOut("");
+                    setRunErr("");
+                    try {
+                      const res = await fetch("/api/compile", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                          language: "cpp",
+                          code,
+                          stdin: runIn,
+                        }),
+                      });
+                      const data = await res.json();
+                      if (data.ok) {
+                        setRunOut(String(data.stdout || ""));
+                        setRunErr(String(data.stderr || ""));
+                      } else {
+                        const details = data.details
+                          ? `\n${String(data.details).slice(0, 400)}`
+                          : "";
+                        setRunErr(
+                          String(data.error || "Execution failed") + details
+                        );
+                      }
+                    } catch {
+                      setRunErr("Network error");
+                    } finally {
+                      setRunning(false);
+                    }
+                  }}
+                  style={{
+                    padding: "8px 14px",
+                    background: running ? "#444" : "#333",
+                    color: "#eee",
+                    border: "1px solid #555",
+                    borderRadius: 4,
+                    cursor: running ? "not-allowed" : "pointer",
+                  }}
+                >
+                  {running ? "Running..." : "Run C++"}
+                </button>
+              </div>
+              <div style={{ display: "flex", gap: 12, marginTop: 8 }}>
+                <div style={{ flex: 1 }}>
+                  <div style={{ fontSize: 12, color: "#888", marginBottom: 4 }}>
+                    stdout
+                  </div>
+                  <pre
+                    style={{
+                      margin: 0,
+                      padding: 10,
+                      background: "#0f0f0f",
+                      color: "#bfe1bf",
+                      border: "1px solid #444",
+                      borderRadius: 4,
+                      maxHeight: 160,
+                      overflow: "auto",
+                    }}
+                  >
+                    {runOut || ""}
+                  </pre>
+                </div>
+                <div style={{ flex: 1 }}>
+                  <div style={{ fontSize: 12, color: "#888", marginBottom: 4 }}>
+                    stderr
+                  </div>
+                  <pre
+                    style={{
+                      margin: 0,
+                      padding: 10,
+                      background: "#0f0f0f",
+                      color: "#e1bfbf",
+                      border: "1px solid #444",
+                      borderRadius: 4,
+                      maxHeight: 160,
+                      overflow: "auto",
+                    }}
+                  >
+                    {runErr || ""}
+                  </pre>
+                </div>
+              </div>
               <div
                 style={{
                   display: "flex",
